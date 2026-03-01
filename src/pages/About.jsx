@@ -3,6 +3,7 @@ import PageHeader from '../components/PageHeader';
 import { team, testimonials } from '../data/nexusData';
 import { motion } from 'framer-motion';
 import { Globe, Users, Trophy, Flag, Shield, Rocket, Cpu, LineChart, Code2, Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
     return (
