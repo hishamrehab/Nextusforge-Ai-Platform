@@ -1,15 +1,88 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Pacifico&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap');
 
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+  --color-primary-navy: #0A1929;
+  --color-secondary-blue: #3B82F6;
+  --color-accent-green: #10B981;
+  --color-bg-off-white: #F9FAFB;
+  --color-text-dark: #1F2937;
+}
+
 * {
-  font-family: "Manrope", sans-serif;
-  font-weight: 500;
+  font-family: "Inter", sans-serif;
   cursor: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white dark:bg-[#050B14] text-gray-900 dark:text-gray-100;
+}
+
+code,
+pre {
+  font-family: "JetBrains Mono", monospace;
 }
 
 @theme {
-  --color-primary: #5044E5;
+  --color-navy: #0A1929;
+  --color-primary: #3B82F6;
+  --color-accent: #10B981;
+  --color-surface: #F9FAFB;
+  --color-dark-text: #1F2937;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3B82F6;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2563EB;
+}
+
+/* Scroll Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+.pause {
+  animation-play-state: paused;
+}
+
+/* Custom Utilities */
+.glass {
+  @apply bg-white/80 dark:bg-black/80 backdrop-blur-xl border border-white/20 dark:border-gray-800;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent;
+}
+
+selection {
+  @apply bg-primary/30 text-primary;
 }
